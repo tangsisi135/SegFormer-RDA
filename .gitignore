@@ -1,0 +1,31 @@
+# Dataset and local input files
+data/liefeng/
+data/liefeng-o1/
+liefeng/
+liefeng-o1/
+VOC2007/
+input/
+*.tif
+
+# Model checkpoints and generated training artifacts
+*.pth
+weights/*
+!weights/README.md
+model_data/*
+!model_data/.gitkeep
+runs/
+logs/
+logs_improve/
+results/
+result/
+*.onnx
+
+# Temporary files, caches, and local IDE settings
+*.downloading
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.log
+

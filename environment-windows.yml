@@ -1,0 +1,23 @@
+name: segformer-rda
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pytorch=2.7.0
+  - torchvision=0.22.0
+  - torchaudio=2.7.0
+  - pytorch-cuda=12.6
+  - numpy>=1.24
+  - pillow>=9.5
+  - opencv
+  - matplotlib
+  - scipy
+  - tqdm
+  - tensorboard
+  - pip
+  - pip:
+      - onnx>=1.16,<2
+      - onnxsim>=0.4,<1
+

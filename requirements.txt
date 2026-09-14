@@ -1,0 +1,11 @@
+# Core runtime dependencies for Python 3.11.
+# Install PyTorch separately using the command for the CUDA version supported
+# by the installed NVIDIA driver; see README.md.
+numpy>=1.24,<3
+Pillow>=9.5,<12
+opencv-python>=4.8,<5
+matplotlib>=3.7,<4
+scipy>=1.10,<2
+tqdm>=4.65,<5
+tensorboard>=2.14,<3
+
