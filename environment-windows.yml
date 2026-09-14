@@ -8,7 +8,7 @@ dependencies:
   - pytorch=2.7.0
   - torchvision=0.22.0
   - torchaudio=2.7.0
-  - pytorch-cuda=12.6
+  - pytorch-cuda=12.8
   - numpy>=1.24
   - pillow>=9.5
   - opencv
@@ -20,4 +20,3 @@ dependencies:
   - pip:
       - onnx>=1.16,<2
       - onnxsim>=0.4,<1
-

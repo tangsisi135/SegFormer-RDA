@@ -33,8 +33,8 @@ The recorded experiment environment was:
 - Windows 11 x64
 - Python 3.11
 - PyTorch 2.7.0
-- NVIDIA GeForce RTX 4080 SUPER 16 GB
-- CUDA 12.6 PyTorch build recommended for the recorded setup
+- NVIDIA GeForce RTX 5090 32 GB
+- CUDA 12.8 PyTorch build used for the recorded setup
 
 The AMD Threadripper PRO CPU is suitable for data loading. CUDA is optional for
 inference and development, but training the B2 model is expected to require a
@@ -43,16 +43,16 @@ CUDA-capable NVIDIA GPU.
 ### pip installation
 
 Create and activate a clean Python 3.11 environment, then install the
-PyTorch build matching the installed NVIDIA driver. For the recorded CUDA 12.6
+PyTorch build matching the installed NVIDIA driver. For the recorded CUDA 12.8
 setup:
 
 ```powershell
-python -m pip install -r requirements-cuda126.txt
+python -m pip install -r requirements-cuda128.txt
 python -m pip install -r requirements.txt
 python check_environment.py
 ```
 
-If CUDA 12.6 wheels are not appropriate for the installed driver, follow the
+If CUDA 12.8 wheels are not appropriate for the installed driver, follow the
 [official PyTorch installation selector](https://pytorch.org/get-started/locally/)
 and then install `requirements.txt`.
 
