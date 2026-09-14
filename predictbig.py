@@ -32,11 +32,11 @@ def predict_and_write():
     )
     model_path = os.environ.get(
         "SEGFORMER_RDA_WEIGHTS",
-        str(project_root / "weights" / "best_epoch_weights.pth"),
+        str(project_root / "logs_improve" / "best_epoch_weights.pth"),
     )
     ResultPath = os.environ.get(
         "SEGFORMER_RDA_BIG_TIFF_OUTPUT",
-        str(project_root / "results" / "shape_prediction.tif"),
+        str(project_root / "result" / "shape_prediction.tif"),
     )
     
               

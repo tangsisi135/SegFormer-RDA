@@ -39,11 +39,11 @@ if __name__ == "__main__":
     PROJECT_ROOT = Path(__file__).resolve().parent
     MASK_DIR = Path(os.environ.get(
         "SEGFORMER_RDA_MASK_DIR",
-        PROJECT_ROOT / "results" / "detection-results",
+        PROJECT_ROOT / "result" / "detection-results",
     ))
     VIS_DIR = Path(os.environ.get(
         "SEGFORMER_RDA_VIS_DIR",
-        PROJECT_ROOT / "results" / "prediction_masks_visual",
+        PROJECT_ROOT / "result" / "prediction_masks_visual",
     ))
     
     visualize_masks(MASK_DIR, VIS_DIR)

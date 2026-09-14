@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DATASET_ROOT = Path(os.environ.get("SEGFORMER_RDA_DATASET_ROOT", PROJECT_ROOT / "data" / "liefeng"))
+DATASET_ROOT = Path(os.environ.get("SEGFORMER_RDA_DATASET_ROOT", PROJECT_ROOT / "liefeng"))
 VOC_ROOT = DATASET_ROOT / "VOC2007"
 SPLIT_DIR = VOC_ROOT / "ImageSets" / "Segmentation"
 

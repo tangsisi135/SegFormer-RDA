@@ -32,7 +32,7 @@ class SegFormer_Segmentation(object):
         #-------------------------------------------------------------------#
         "model_path"        : os.environ.get(
             "SEGFORMER_RDA_WEIGHTS",
-            str(PROJECT_ROOT / "weights" / "best_epoch_weights.pth"),
+            str(PROJECT_ROOT / "logs_improve" / "best_epoch_weights.pth"),
         ),
         #----------------------------------------#
                         

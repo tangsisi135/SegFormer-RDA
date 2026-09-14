@@ -35,14 +35,14 @@ if __name__ == "__main__":
     #-------------------------------------------------------#
     VOCdevkit_path  = os.environ.get(
         "SEGFORMER_RDA_DATASET_ROOT",
-        str(PROJECT_ROOT / "data" / "liefeng"),
+        str(PROJECT_ROOT / "liefeng"),
     )
 
     # The project uses the original patch-level train/validation split.
     # Evaluate the held-out validation patches because no test split is kept.
     image_ids       = open(os.path.join(VOCdevkit_path, "VOC2007/ImageSets/Segmentation/val.txt"),'r').read().splitlines()
     gt_dir          = os.path.join(VOCdevkit_path, "VOC2007/SegmentationClass/")
-    miou_out_path   = str(PROJECT_ROOT / 'results')
+    miou_out_path   = str(PROJECT_ROOT / 'result')
     pred_dir        = os.path.join(miou_out_path, 'detection-results')
 
     if miou_mode == 0 or miou_mode == 1:

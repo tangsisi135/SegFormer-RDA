@@ -1,0 +1,3 @@
+===>_background_:       Iou-97.68; Recall (equal to the PA)-97.8; Precision-99.88
+===>feng:       Iou-76.87; Recall (equal to the PA)-98.44; Precision-77.82
+===> mIoU: 87.28; mPA: 98.12; Accuracy: 97.85

@@ -1,11 +1,10 @@
 # Dataset
 
-The dataset is intentionally not included in the source-code repository. Put
-the dataset downloaded from the GitHub Release at `data/liefeng/` with this
-VOC-style layout:
+The full source dataset is kept at the repository root in `liefeng/`, matching
+the original experiment folder. Its VOC-style layout is:
 
 ```text
-data/liefeng/
+liefeng/
 └── VOC2007/
     ├── JPEGImages/
     │   └── <patch-id>.tif
@@ -17,8 +16,10 @@ data/liefeng/
             └── val.txt
 ```
 
-The canonical split contains 1,147 training patches and 203 validation
-patches. Validate a downloaded dataset with:
+The original folder currently contains 54 full-size image/mask pairs. It does
+not include `ImageSets/Segmentation/train.txt` or `val.txt`, so it is not the
+canonical 1,350-patch training split described by the training configuration.
+Validate any supplied split with:
 
 ```powershell
 python prepare_dataset_splits.py
@@ -27,9 +28,5 @@ python prepare_dataset_splits.py
 To use another location, set `SEGFORMER_RDA_DATASET_ROOT` to the directory that
 contains `VOC2007`.
 
-Important: the source folder inspected while preparing this release currently
-contains 54 full-size image/mask pairs and no `ImageSets/Segmentation/train.txt`
-or `val.txt`. Those files are not a substitute for the canonical 1,350-patch
-dataset. Do not publish that incomplete source dataset as the training Release
-asset until the patch extraction and split files have been supplied and
-validated.
+The image and mask files are tracked with Git LFS because they are binary
+GeoTIFF files.

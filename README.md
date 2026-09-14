@@ -7,11 +7,11 @@ attention.
 
 ## Repository contents
 
-This repository contains the source code, training and inference scripts,
-dataset layout documentation, and environment checks. The dataset, trained
-checkpoints, generated results, and training logs are kept out of the normal
-Git history and are distributed as GitHub Release assets where redistribution
-is permitted.
+This repository follows the original experiment-directory architecture and
+contains the source code, dataset, trained checkpoints, generated results,
+training logs, and Python cache files. The large `.pth` and `.tif` files are
+stored with Git LFS so their paths remain unchanged while ordinary Git stores
+only small pointer files.
 
 ## Attribution
 
@@ -71,11 +71,11 @@ inference scripts.
 
 ## Dataset
 
-Download the validated dataset release asset and extract it so that the layout
-is:
+The dataset is stored in the repository under `liefeng/` and follows this
+layout:
 
 ```text
-data/liefeng/
+liefeng/
 └── VOC2007/
     ├── JPEGImages/<patch-id>.tif
     ├── SegmentationClass/<patch-id>.tif
@@ -99,28 +99,33 @@ $env:SEGFORMER_RDA_DATASET_ROOT = 'D:\datasets\liefeng'
 
 See [data/README.md](data/README.md) for the full layout.
 
-The source materials inspected for this release currently contain 54 full-size
-image/mask pairs and do not contain the required train/validation split files.
-They must not be uploaded as the canonical training dataset until the
-1,350-patch dataset and its split files are available and validated.
+The uploaded source folder contains 54 full-size image/mask pairs. It does not
+contain the 1,147/203 patch-level split files used by the training script, so
+the included data should be treated as the original experiment data snapshot,
+not as a verified reproducible patch split.
 
 ## Model weights
 
-Download the trained checkpoint from the Release asset and place it at:
+The original checkpoints remain in their source locations:
 
 ```text
-weights/best_epoch_weights.pth
+logs_improve/best_epoch_weights.pth
+logs_improve/ep100-loss0.011-val_loss0.012.pth
+logs_improve/ep105-loss0.011-val_loss0.012.pth
+model_data/segformer_b0_weights_voc.pth
+model_data/segformer_b1_weights_voc.pth
+model_data/segformer_b2_weights_voc.pth
 ```
 
-The checkpoint must be the two-class SegFormer-RDA B2 checkpoint. To use a
-different location:
+The trained two-class SegFormer-RDA B2 checkpoint is
+`logs_improve/best_epoch_weights.pth`. To use a different location:
 
 ```powershell
 $env:SEGFORMER_RDA_WEIGHTS = 'D:\models\best_epoch_weights.pth'
 ```
 
-See [weights/README.md](weights/README.md) for the optional backbone-weight
-configuration. The repository does not commit `.pth` files.
+See [weights/README.md](weights/README.md) for the checkpoint details. The
+repository uses Git LFS for all `.pth` and `.tif` files.
 
 ## Train
 
@@ -131,7 +136,7 @@ python train_improve.py
 ```
 
 `train.py` remains as a compatibility launcher for the same configuration.
-Training outputs are written under `runs/`, which is ignored by Git. To resume
+Training outputs are written under `logs_improve/`. To resume
 from a checkpoint, set `SEGFORMER_RDA_INIT_WEIGHTS` before starting. To reduce
 data-loader processes on a smaller machine, set for example:
 
@@ -169,18 +174,29 @@ metrics under `results/`:
 python get_miou.py
 ```
 
+## Large files and Git LFS
+
+Git LFS must be installed before cloning or pulling the complete data and
+weights:
+
+```powershell
+git lfs install
+git lfs pull
+```
+
+Without Git LFS, the repository will contain pointer files instead of the
+actual large binaries. GitHub blocks ordinary Git files larger than 100 MiB,
+which is why this repository tracks `.pth` and `.tif` with Git LFS.
+
 ## Release assets
 
-The recommended release is `v1.0.0`, with assets named:
+The recommended release is `v1.0.0`, with optional assets named:
 
 - `segformer-rda-weights-v1.0.0.zip`
-- `segformer-rda-dataset-v1.0.0.zip` (only after the canonical patch dataset is
-  validated)
+- `segformer-rda-dataset-v1.0.0.zip`
 
-After publishing the release, the assets can be downloaded from the
-[latest release](../../releases/latest) or the fixed
-[v1.0.0 release](../../releases/tag/v1.0.0). Do not upload the dataset or
-checkpoints through `git add`; they are intentionally excluded by `.gitignore`.
+The complete files are already tracked by Git LFS in this repository. Release
+assets are optional mirrors and are not required for cloning the repository.
 
 ## Citation
 

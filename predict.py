@@ -66,16 +66,16 @@ if __name__ == "__main__":
     #-------------------------------------------------------------------------#
     dataset_root = Path(os.environ.get(
         "SEGFORMER_RDA_DATASET_ROOT",
-        str(PROJECT_ROOT / "data" / "liefeng"),
+        str(PROJECT_ROOT / "liefeng"),
     ))
     dir_origin_path = str(dataset_root / "VOC2007" / "JPEGImages")
-    dir_save_path   = str(PROJECT_ROOT / "results" / "prediction_visual")
+    dir_save_path   = str(PROJECT_ROOT / "result" / "prediction_visual")
     #-------------------------------------------------------------------------#
                                            
                                         
     #-------------------------------------------------------------------------#
     simplify        = True
-    onnx_save_path  = str(PROJECT_ROOT / "results" / "models.onnx")
+    onnx_save_path  = str(PROJECT_ROOT / "result" / "models.onnx")
 
     if mode == "predict":
         '''

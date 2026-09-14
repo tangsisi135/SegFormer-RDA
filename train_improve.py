@@ -81,7 +81,7 @@ if __name__ == "__main__":
     
     lr_decay_type       = 'cos'
     save_period         = 5
-    save_dir            = os.environ.get("SEGFORMER_RDA_LOG_DIR", str(PROJECT_ROOT / "runs"))
+    save_dir            = os.environ.get("SEGFORMER_RDA_LOG_DIR", str(PROJECT_ROOT / "logs_improve"))
     eval_flag           = True
     eval_period         = 5
     
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     #------------------------------#
     VOCdevkit_path  = os.environ.get(
         "SEGFORMER_RDA_DATASET_ROOT",
-        str(PROJECT_ROOT / "data" / "liefeng"),
+        str(PROJECT_ROOT / "liefeng"),
     )
     
     dice_loss       = True
